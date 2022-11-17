@@ -10,7 +10,7 @@ export default function Home() {
       <Suspense>
         <Slider />
         <Tabbing />
-        {/* <ServerTest /> */}
+        <ServerTest />
       </Suspense>
     </Layout>
   );

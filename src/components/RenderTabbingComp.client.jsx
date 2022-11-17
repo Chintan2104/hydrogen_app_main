@@ -22,7 +22,7 @@ const Client = ({ collections }) => {
           return (
             <>
               <TabPanel key={k} className='myCls'>{
-                collections.products.nodes.map((data,k) => {
+                collections.products.nodes.slice(0,3).map((data,k) => {
                   return <>
                     <Link key={k} to={`/products/${data.handle}`}>
                       <h1>{data.title}</h1>

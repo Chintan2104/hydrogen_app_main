@@ -24,7 +24,7 @@ export default function Product({ params }) {
       handle,
     },
   });
-  
+
   useServerAnalytics({
     shopify: {
       pageType: ShopifyAnalyticsConstants.pageType.product,

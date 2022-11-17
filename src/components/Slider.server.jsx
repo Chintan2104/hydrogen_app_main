@@ -2,7 +2,7 @@ import { Link, Image, gql, useShopQuery, CacheLong } from "@shopify/hydrogen";
 import { useState } from "react";
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
-import RenderCollectionComp from "./RenderCollectionComp.client";
+import RenderCollectionComp from "./RenderSliderComp.client";
 
 export default function FeaturedCollections() {
   const {

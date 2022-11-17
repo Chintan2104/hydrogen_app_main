@@ -1,40 +1,49 @@
 import React from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { Link, Image } from '@shopify/hydrogen';
+import { Image, Link } from "@shopify/hydrogen";
 
-const RenderTabbingComp = ({ products }) => {
+const Client = ({ collections }) => {
   return (
     <Tabs className='text-center mt-10'>
       <TabList >
         {
-          products.nodes.map((collections) => {
+          collections.nodes.map((collections) => {
             return (
               <>
-                <Tab>{collections.title}</Tab>
+                <Tab id='1' key={collections.handle}>{collections.title}</Tab>
               </>
             )
           })
         }
       </TabList>
-
       {
-        products.nodes.map((collection) => {
+        collections.nodes.map((collections,k) => {
           return (
-            <TabPanel>
-              <Link key={collection.id} to={`/collections/${collection.handle}`}>
-                <div className="flex justify-around mt-10">
-                  {collection?.image && (
-                    <Image
-                      className="rounded shadow-border overflow-clip inline-block aspect-[5/4] md:aspect-[3/2] object-cover"
-                      height={336}
-                      alt={`Image of ${collection.title}`}
-                      data={collection.image}
-                    />
-                  )}
-                </div>
-              </Link>
-            </TabPanel>
+            <>
+              <TabPanel key={k} className='myCls'>{
+                collections.products.nodes.map((data,k) => {
+                  return <>
+                    <Link key={k} to={`/products/${data.handle}`}>
+                      <h1>{data.title}</h1>
+                      <div className=" ">
+                        {
+                          data.images.nodes.map((val) => {
+                            return <Image
+                              className='m-2'
+                              alt='img'
+                              height={170}
+                              data={val}
+                            />
+                          })
+                        }
+                      </div>
+                    </Link>
+                  </>
+                })
+              }
+              </TabPanel>
+            </>
           )
         })
       }
@@ -43,4 +52,5 @@ const RenderTabbingComp = ({ products }) => {
   )
 }
 
-export default RenderTabbingComp
+export default Client
+

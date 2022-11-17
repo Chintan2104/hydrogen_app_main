@@ -6,7 +6,6 @@ import {
   ShopifyAnalyticsConstants,
   Seo,
 } from "@shopify/hydrogen";
-
 import { Layout } from "../../components/Layout.server";
 import ProductCard from "../../components/ProductCard.server";
 import { Suspense } from "react";
@@ -28,7 +27,7 @@ export default function Collection() {
       resourceId: collection.id,
     },
   });
-  
+
   return (
     <Layout>
       <Suspense>

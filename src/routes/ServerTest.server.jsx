@@ -15,8 +15,8 @@ export default function ServerTest() {
     data: { products },
   } = useShopQuery({
     query: QUERY,
+
   });
-  
   const { countryCode } = useSession();
   return (
     <>

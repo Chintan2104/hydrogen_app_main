@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.myCls{
+    align-items: center;
+    display: flex !important;
+    justify-content: center;
+    flex-wrap: wrap;
+}

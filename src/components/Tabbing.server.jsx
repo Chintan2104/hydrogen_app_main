@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import RenderTabbingComp from './RenderTabbingComp.client'
-import { Link, Image, gql, useShopQuery, CacheLong } from "@shopify/hydrogen";
+import { Link, Image, gql, useShopQuery, CacheLong, Seo } from "@shopify/hydrogen";
 
 const CollectionTab = () => {
   const {
@@ -11,7 +11,12 @@ const CollectionTab = () => {
   });
 
   return (
-    <RenderTabbingComp collections={collections} />
+    <>
+      <Suspense>
+        <Seo type='collections' data={collections} />
+      </Suspense>
+      <RenderTabbingComp collections={collections} />
+    </>
   )
 }
 export default CollectionTab

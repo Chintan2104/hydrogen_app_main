@@ -40,9 +40,11 @@ export function Layout({ children }) {
             Skip to content
           </a>
         </div>
-        <Header shop={shop} />
+        <Header 
+        className=""
+        shop={shop} />
 
-        <main role="main" id="mainContent" className="flex-grow bg-blue-100">
+        <main role="main" id="mainContent" className="flex-grow dark:bg-slate-800">
           <Suspense>{children}</Suspense>
         </main>
       </div>

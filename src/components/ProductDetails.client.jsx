@@ -26,18 +26,18 @@ export default function ProductDetails({ product }) {
           </div>
           <div className="sticky md:mx-auto max-w-xl md:max-w-[24rem] grid gap-8 p-0 md:p-6 md:px-0 top-[6rem] lg:top-[8rem] xl:top-[10rem]">
             <div className="grid gap-2">
-              <h1 className="text-4xl font-bold leading-10 whitespace-normal">
+              <h1 className="text-4xl font-bold leading-10 whitespace-normal dark:text-white ">
                 {product.title}
               </h1>
-              <span className="max-w-prose whitespace-pre-wrap inherit text-copy opacity-50 font-medium">
+              <span className="max-w-prose whitespace-pre-wrap inherit text-copy opacity-50 font-medium dark:text-slate-400" >
                 {product.vendor}
               </span>
             </div>
             <ProductForm product={product} />
-            <div className="mt-8">
+            <div className="mt-8 " >
               <div
-                className="prose border-t border-gray-200 pt-6 text-black text-md"
-                dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
+                className="prose border-t border-gray-200 pt-6 text-black text-md text-slate-300 "
+                dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} 
               ></div>
             </div>
           </div>
@@ -63,10 +63,10 @@ function ProductForm({ product }) {
                 key={name}
                 className="flex flex-wrap items-baseline justify-start gap-6"
               >
-                <legend className="whitespace-pre-wrap max-w-prose font-bold text-lead min-w-[4rem]">
+                <legend className="whitespace-pre-wrap max-w-prose text-neutral-400 font-bold text-lead min-w-[4rem]">
                   {name}
                 </legend>
-                <div className="flex flex-wrap items-baseline gap-4">
+                <div className="flex flex-wrap items-baseline gap-4 text-neutral-500">
                   <OptionRadio name={name} values={values} />
                 </div>
               </div>
@@ -83,7 +83,7 @@ function ProductForm({ product }) {
         />
         -
         <ProductPrice
-          className="text-gray-900 text-lg font-semibold"
+          className=" text-lg font-semibold text-red-500 "
           variantId={selectedVariant.id}
           data={product}
         />
@@ -123,7 +123,7 @@ function PurchaseMarkup() {
           })
         }
       >
-        <span className="bg-black text-white inline-block rounded-sm font-medium text-center py-3 px-6 max-w-xl leading-none w-full">
+        <span className="bg-black text-white inline-block rounded-sm font-medium text-center py-3 px-6 max-w-xl leading-none w-full bg-blue-800">
           {isOutOfStock ? "Sold out" : "Add to cart"}
         </span>
       </AddToCartButton>
@@ -133,7 +133,7 @@ function PurchaseMarkup() {
         </span>
       ) : (
         <BuyNowButton variantId={selectedVariant.id}>
-          <span className="inline-block rounded-sm font-medium text-center py-3 px-6 max-w-xl leading-none border w-full">
+          <span className="inline-block rounded-sm font-medium text-center py-3 px-6 max-w-xl leading-none border border-teal-400 text-slate-100 w-full">
             Buy it now
           </span>
         </BuyNowButton>

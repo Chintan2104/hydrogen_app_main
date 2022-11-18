@@ -4,6 +4,9 @@
 .myCls{
     align-items: center;
     display: flex !important;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
+}
+.flex-grow{
+    /* background-color: #e1ddee; */
 }

@@ -14,7 +14,6 @@ import ProductDetails from "../../components/ProductDetails.client";
 
 export default function Product({ params }) {
   const { handle } = useRouteParams();
-  // const handle = 'chain-bracelet';
 
   const {
     data: { product },

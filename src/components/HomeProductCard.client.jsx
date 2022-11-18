@@ -27,7 +27,7 @@ export default function HomeProductCard({ product }) {
   const [isProductHover, setIsProductHover] = useState(false);
 
   return (
-    
+
     <div className="flex flex-col">
       <Drawer open={isOpen} onClose={closeDrawer}>
         <div className="grid">
@@ -51,17 +51,15 @@ export default function HomeProductCard({ product }) {
             )}
             {/* Product Secondary Image on hover */}
             <Image
-              className={`aspect-[5/5] ${
-                product.images.nodes[1] && isProductHover && "hidden"
-              }`}
+              className={`aspect-[5/5] ${product.images.nodes[1] && isProductHover && "hidden"
+                }`}
               data={product.images.nodes[0]}
               alt="Alt Tag"
             />
             {product.images.nodes[1] && (
               <Image
-                className={`secondaryImage aspect-[5/5] ${
-                  !isProductHover && "hidden"
-                } `}
+                className={`secondaryImage aspect-[5/5] ${!isProductHover && "hidden"
+                  } `}
                 data={product.images.nodes[1]}
                 alt="Alt Tag"
               />
@@ -69,13 +67,13 @@ export default function HomeProductCard({ product }) {
             {/* End Product Secondary Image on hover */}
           </div>
           <div className="grid gap-1">
-            <h3 className="max-w-prose text-copy w-max overflow-hidden whitespace-nowrap text-ellipsis ">
+            <h3 className="max-w-prose text-copy w-max overflow-hidden whitespace-nowrap text-ellipsis text-sky-500 font-mono ">
               {product.title}
             </h3>
             <div className="flex gap-4">
               <span className="max-w-prose whitespace-pre-wrap inherit text-copy flex gap-4">
                 <ProductPrice
-                  className="text-gray-900 text-lg font-semibold"
+                  className="text-gray-900 text-lg font-semibold text-pink-50"
                   variantId={selectedVariant.id}
                   data={product}
                 />
@@ -96,9 +94,8 @@ export default function HomeProductCard({ product }) {
           variantId={selectedVariant.id}
           quantity={1}
           accessibleAddingToCartLabel="...."
-          className={`bg-rose-600 text-white inline-block rounded-sm font-medium text-center py-3 px-6 max-w-xl leading-none w-full uppercase ${
-            isOutOfStock && "opacity-50"
-          }`}
+          className={`bg-blue-700 text-slate-200 inline-block rounded-sm font-medium text-center py-3 px-6 max-w-xl leading-none w-full uppercase ${isOutOfStock && "opacity-50"
+            }`}
           onClick={
             !isOutOfStock &&
             (() => {
@@ -110,7 +107,7 @@ export default function HomeProductCard({ product }) {
           add to cart
         </AddToCartButton>
       </form>
-      {!isOutOfStock && <Modal product={product}/>}
+      {!isOutOfStock && <Modal className="  " product={product} />}
     </div>
   );
 }
@@ -126,7 +123,7 @@ function ProductGridOptions({ name, values }) {
     >
       {values.map(function (value) {
         const selected = selectedOptions[name] === value;
-        const id = `option-${name}-${value}`;
+        const id = `o+ption-${name}-${value}`;
         return (
           <option value={value} defaultValue={selectedOptions[name]} id={id}>
             {value}
@@ -150,9 +147,8 @@ function ProductGridOptions({ name, values }) {
             onChange={() => setSelectedOption(name, value)}
           />
           <div
-            className={`rounded-full leading-none border-b-[2px] py-1 cursor-pointer transition-all duration-200 border-2 ${
-              checked ? "border-black" : "border-transparent"
-            }`}
+            className={`rounded-full leading-none border-b-[2px] py-1 cursor-pointer transition-all duration-200 border-2 ${checked ? "border-black" : "border-transparent"
+              }`}
             style={{ backgroundColor: value, width: "35px", height: "35px" }}
           ></div>
         </label>
